@@ -1,0 +1,379 @@
+/* Fonte personalizada */
+@font-face {
+  font-family: "BLOODY";
+  src: url("../fontes/BLOODY.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+  font-family: "Courier New", sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;     
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 3rem 2rem 3rem 2rem;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem de fundo */
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); 
+  transition: all 0.4s ease-in-out;
+  opacity: 1;
+  z-index: 1;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+/* Imagem de fundo com gradiente atrás da imagem */
+.bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Gradiente de transição abaixo da imagem */
+.bg-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* Remover gradiente para não sobrepor a imagem */
+  background: none; /* Remover gradiente */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Aura mística adicional no fundo */
+.bg-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; /* Ajustado para 100% da largura */
+  height: 0%; /* Remover aura mística */
+  background: none; /* Remover o gradiente da aura */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0; /* Remover a opacidade */
+}
+
+/* Logo Styles */
+.logo {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  max-width: 150px;
+  z-index: 10;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #fff;
+  z-index: 2;
+  padding: 8px 14px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  width: auto;
+  max-width: 95%;
+  font-weight: bold;
+  border: 1px solid #500ca3;
+  box-shadow: 0 0 10px #500ca3;
+  margin: 2rem auto 1rem;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Ajuste para desktop: imagem de fundo ocupar toda a tela */
+@media (min-width: 1025px) {
+  .bg-wrapper {
+    background-color: transparent; /* Sem bordas ou sombreado */
+  }
+
+  .bg-img {
+    object-fit: cover;  /* A imagem vai cobrir toda a tela */
+  }
+}
+
+/* Estilo dos botões padrão (exceto icônicos e setas) */
+button:not(.icon-button):not(.setas-moeda button) {
+  background-color: transparent;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+button:not(.icon-button):not(.setas-moeda button):hover {
+  background-color: transparent;
+}
+
+/* Icone de botão */
+.icon-button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.icon-button:focus {
+  outline: 2px solid #500ca3;
+  outline-offset: 4px;
+}
+
+.icon-btn {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 4px #500ca3);
+  will-change: transform, filter;
+}
+
+.icon-button:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.icon-button:hover .icon-btn {
+  filter: drop-shadow(0 0 5px #110022) drop-shadow(0 0 10px #220033);
+}
+
+#btnReset:hover .icon-btn {
+  filter: drop-shadow(0 0 6px #0b1e2d) drop-shadow(0 0 12px #500ca3);
+  transform: scale(1.1) rotate(-1deg);
+}
+
+.icon-adaga {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+  filter: drop-shadow(0 0 5px #444);
+  will-change: transform;
+}
+
+@keyframes pulsar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.icon-adaga:hover {
+  animation: pulsar 0.6s infinite;
+}
+
+.setas-moeda button {
+  background: transparent !important;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: #500ca3;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.setas-moeda button:hover {
+  color: #fff;
+}
+
+#setaAtual {
+  margin: 4px 0;
+}
+
+.content h1 {
+  margin-bottom: 1.5rem;
+  font-family: "BLOODY", cursive;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px #500ca3;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.fade-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#mainTitle,
+#inputLabel,
+#wonInputValue,
+#infoText,
+#btnConvert,
+#btnReset {
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.moeda-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.moeda-info img {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.botao-conversao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  margin-top: -10px;
+}
+
+.setas-moeda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -20px;
+}
+
+#result {
+  color: #500ca3;
+  font-size: 2.8rem;
+  font-family: "BLOODY", cursive;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  word-break: break-word;
+  max-width: 100%;
+  text-shadow: 2px 2px 4px #000, 0 0 10px #000, 0 0 20px #500ca3, 0 0 35px #500ca3;
+}
+
+@keyframes auraPulse {
+  0% {
+    box-shadow: 0 0 10px #500ca3, 0 0 20px #500ca3;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px #a45cff, 0 0 60px #a45cff;
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 10px #500ca3, 0 0 20px #500ca3;
+    transform: scale(1);
+  }
+}
+
+.animate-aura {
+  animation: auraPulse 0.8s ease-in-out;
+}
+
+
+#result {
+  animation: auraPulse 2s infinite alternate;
+}
+
+/* Botões do idioma e bandeira */
+#idiomaSelect {
+  display: flex;
+  gap: 10px;
+}
+
+#idiomaSelect img {
+  width: 35px;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#idiomaSelect img:hover {
+  transform: scale(1.1);
+}
+
+/* Estilo dos botões padrão (exceto icônicos e setas) */
+button:not(.icon-button):not(.setas-moeda button) {
+  background-color: transparent;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+button:not(.icon-button):not(.setas-moeda button):hover {
+  background-color: transparent;
+}

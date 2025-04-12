@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="./js/script.js" defer></script>
+    <link rel="icon" href="img/icons/moeda-sombria.ico" type="image/x-icon">
+  </head>
+  <body>
+    <img src="./img/logofundopreto.png" alt="Logo GTM.dev" class="logo" />
+  
+    <main class="container">
+      <div class="bg-wrapper">
+        <img
+          id="bgImage"
+          src="./img/sololeveling.png"
+          alt="Imagem Solo Leveling"
+          class="bg-img"
+        />
+      </div>
+      
+      <section class="content">
+        <h1 id="mainTitle">Quanto vai me custar esse item?</h1>
+  
+        <label for="wonInputValue" id="inputLabel">Digite o valor do item</label>
+        <input
+          id="wonInputValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Digite um valor numérico"
+        />
+  
+        <p id="infoText">
+          Que tal converter esse valor e levantar essa informação em reais?
+        </p>
+  
+        <!-- BOTÃO + SETAS DE MOEDA -->
+        <div class="botao-conversao">
+          <button id="btnConvert" title="Erga-se" class="icon-button">
+            <img src="./img/icons/erga.png" alt="Erga-se" class="icon-btn" />
+          </button>
+  
+          <div class="setas-moeda">
+            <button id="btnMoedaAnterior" title="Moeda anterior">
+              <img
+                src="./img/icons/adagacima.png"
+                alt="Anterior"
+                class="icon-adaga"
+              />
+            </button>
+  
+            <span class="moeda-info">
+              <img
+                id="moedaBandeiraImg"
+                src="./img/flags/kr.png"
+                alt="Bandeira"
+              />
+              <span id="moedaNome">₩ Won</span>
+            </span>
+  
+            <button id="btnMoedaProxima" title="Próxima moeda">
+              <img
+                src="./img/icons/adagabaixo.png"
+                alt="Próximo"
+                class="icon-adaga"
+              />
+            </button>
+          </div>
+        </div>
+  
+        <button
+          id="btnReset"
+          class="icon-button"
+          style="display: none"
+          title="Retorne"
+        >
+          <img src="./img/icons/retorne.png" alt="Retorne" class="icon-btn" />
+        </button>
+  
+        <h2 id="result"></h2>
+      </section>
+  
+      <footer>GTM.dev - Imersão DEV - 2025</footer>
+    </main>
+  </body>
+  
+</html>
